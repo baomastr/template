@@ -3,6 +3,7 @@ var gulp = require ('gulp'),
     connect = require ('gulp-connect'),
     jade = require ('gulp-jade'),
     stylus = require ('gulp-stylus'),
+    minify = require('gulp-minify'),
     nib = require('nib'),
     spritesmith = require('gulp.spritesmith');
 
@@ -51,11 +52,25 @@ gulp.task('css', function(){
         .pipe(connect.reload())
 });
 
+gulp.task('js', function() {
+    gulp.src('js/*.js')
+        .pipe(minify({
+            ext:{
+                src:'-debug.js',
+                min:'.js'
+            },
+            exclude: ['tasks'],
+            ignoreFiles: ['.combo.js', '.min.js']
+        }))
+        .pipe(gulp.dest('dist/js'))
+});
+
 gulp.task('watch',function(){
     gulp.watch('stylus/*.styl',['css']);
     gulp.watch('jade/*.jade',['jade']);
+    gulp.watch('js/*.js',['js']);
     gulp.watch('assets/images/sprite/*.*',['sprite']);
     watch('dist/*.').pipe(connect.reload());
 });
 
-gulp.task('default',['connect','jade','sprite','css','watch']);
+gulp.task('default',['connect','jade','sprite','css','js','watch']);
