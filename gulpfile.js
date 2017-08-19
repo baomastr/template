@@ -67,10 +67,9 @@ gulp.task('js', function() {
 
 gulp.task('watch',function(){
     gulp.watch('stylus/*.styl',['css']);
-    gulp.watch('jade/*.jade',['jade']);
     gulp.watch('js/*.js',['js']);
     gulp.watch('assets/images/sprite/*.*',['sprite']);
-    watch('dist/*.').pipe(connect.reload());
+    /*watch('dist/!*.').pipe(connect.reload());*/
 });
 
-gulp.task('default',['connect','jade','sprite','css','js','watch']);
+gulp.task('default',['css','js','watch']);

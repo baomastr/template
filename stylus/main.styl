@@ -5,15 +5,26 @@
 @import '../stylus/variables'
 @import '../stylus/typography'
 @import nib
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&subset=cyrillic');
+
+*
+  box-sizing border-box
 
 html, body
   height: 100%
   width: 100%
-  //background-image: linear-gradient(-153deg, #856DD8 5%, #2328AE 100%);
   background-image: linear-gradient(145deg, #856dd8, #2328ae);
+  font-family: 'Roboto', sans-serif;
+  color: #171b20;
+
+a
+  text-decoration: none
+  color: #5b50c6;
+
+ol
+  margin: 0
 
 .wrapper
-  //background-image: linear-gradient(-153deg, #856DD8 5%, #2328AE 100%);
   position: relative
   max-width: 1440px
   width: 100%
@@ -22,13 +33,130 @@ html, body
   display: flex;
   justify-content: center;
 
+.row
+  display: flex
+  justify-content: space-between;
+  width: 100%;
+
+.column
+  display: flex
+  flex-direction: column
+  justify-content: space-between;
+  width: 300px
+  //width: 50%
+
 .form
+  border-radius: 6px;
   position: absolute
   display: flex
   width 720px
   background-color: #fff
-  top: 20%
-
-
+  top: 10%
   &__inner
+    padding: 30px
+  //&__row
+  //  width: 100%
+  &__title
+    font-size: 26px;
+
+  &__item
+    position: relative
+    margin-top: 22px
+    &--required
+      &:after
+        content: '*'
+        color #e63333;
+        position: absolute;
+        right: -20px;
+        top: 30%;
+        font-size: 30px;
+
+  &__input
+    width: 100%
     padding: 20px
+    border-radius: 6px;
+    border: solid 1.2px #b0b7be;
+
+    &:focus
+      outline: none;
+      border: solid 1.2px #636f7b;
+    &-placeholder
+      position: absolute;
+      pointer-events: none;
+      left: 20px;
+      top: 21px;
+      color: #808890;
+      transition: 0.2s ease all;
+  &__submit
+    &-btn
+      border: 0px
+      text-transform: uppercase
+      border-radius: 100px;
+      background-color: #2328ae;
+      color:white
+      font-size: 16px;
+      padding: 15px
+      width: 100%
+  &__file
+    border-radius: 6px 6px 0 6px;
+    background-color: #ffc739;
+    padding: 20px;
+    min-width: 115%;
+    position: relative
+    &:after
+      content: ''
+      position: absolute
+      bottom: -10px
+      right: 0
+      width: 10px
+      height: 10px
+      border-radius: 100px;
+      background-color: #b58200;
+      z-index: 0;
+  &__info
+    &-item
+      & + &
+        margin-top: 20px
+
+
+.form__input:focus ~ .form__input-placeholder,
+.form__input:not(:focus):valid ~ .form__input-placeholder
+//.form__input:not(:focus):invalid ~ .form__input-placeholder
+  top: 8px;
+  bottom: 10px;
+  left: 20px;
+  font-size: 11px;
+  opacity: 1;
+
+
+.input-file {
+  border: 1px dashed #ccc;
+  display: table-cell;
+  padding: 30px;
+}
+
+.label-input-file {
+  position: relative;
+  width: 100%;
+}
+.label-input-file span {
+  display: block;
+  width: 100%;
+  //padding: 5px;
+  font-weight: normal;
+  cursor: pointer;
+  color white
+  text-align: center
+  padding: 50px
+  border: dashed 2px #ffffff;
+  border-radius: 6px;
+  text-transform: uppercase
+}
+.label-input-file input {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
