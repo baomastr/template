@@ -6,5 +6,29 @@
 @import '../stylus/typography'
 @import nib
 
-body
-  padding: 0
+html, body
+  height: 100%
+  width: 100%
+  //background-image: linear-gradient(-153deg, #856DD8 5%, #2328AE 100%);
+  background-image: linear-gradient(145deg, #856dd8, #2328ae);
+
+.wrapper
+  //background-image: linear-gradient(-153deg, #856DD8 5%, #2328AE 100%);
+  position: relative
+  max-width: 1440px
+  width: 100%
+  height: 100vh
+  margin: auto
+  display: flex;
+  justify-content: center;
+
+.form
+  position: absolute
+  display: flex
+  width 720px
+  background-color: #fff
+  top: 20%
+
+
+  &__inner
+    padding: 20px
