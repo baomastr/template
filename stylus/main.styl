@@ -17,6 +17,9 @@ html, body
   font-family: 'Roboto', sans-serif;
   color: #171b20;
 
+*:focus
+  outline: none;
+
 a
   text-decoration: none
   color: #5b50c6;
@@ -38,20 +41,26 @@ ol
   justify-content: space-between;
   width: 100%;
 
+.center
+  align-items: center;
+
 .column
   display: flex
   flex-direction: column
   justify-content: space-between;
   width: 300px
+  & + &
+    margin-left: 60px
   //width: 50%
 
 .form
   border-radius: 6px;
   position: absolute
   display: flex
-  width 720px
+  max-width 720px
   background-color: #fff
   top: 10%
+  /*z-index: 0;*/
   &__inner
     padding: 30px
   //&__row
@@ -70,6 +79,10 @@ ol
         right: -20px;
         top: 30%;
         font-size: 30px;
+    &--sex
+      margin: 30px auto
+      width: 90%
+      text-align: center;
 
   &__input
     width: 100%
@@ -87,6 +100,11 @@ ol
       top: 21px;
       color: #808890;
       transition: 0.2s ease all;
+  &__select
+    height: 58px
+    background-color: white
+    &-option
+      background-color: white
   &__submit
     &-btn
       border: 0px
@@ -97,26 +115,105 @@ ol
       font-size: 16px;
       padding: 15px
       width: 100%
+      cursor: pointer
   &__file
     border-radius: 6px 6px 0 6px;
     background-color: #ffc739;
     padding: 20px;
-    min-width: 115%;
-    position: relative
-    &:after
-      content: ''
-      position: absolute
-      bottom: -10px
-      right: 0
-      width: 10px
-      height: 10px
-      border-radius: 100px;
-      background-color: #b58200;
-      z-index: 0;
+    min-width: 340px;
+    /*position: relative*/
+    z-index: auto;
+    //&:after
+    //  content: ''
+    //  width: 30px
+    //  height: 30px
+    //  border-radius: 50%;
+    //  background-color: #b58200;
+    //  position: absolute
+    //  bottom: -15px
+    //  right: 0
+    //  z-index: -1;
+    &-after
+      position: absolute;
+      right: 0;
+      bottom: -13px;
   &__info
     &-item
       & + &
         margin-top: 20px
+  &__eye
+    position: absolute
+    right: 15px;
+    top: 22px;
+    cursor: pointer
+    //&-svg
+    //  height: 34px
+    #opened
+      display: none
+  //&__checkbox
+  //  &-input
+  //    padding: 18px
+  //    font-size: 30px
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {display:none;}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border: solid 1px #b0b7be;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 3px;
+  background-color: #5b50c6
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+//input:checked + .slider {
+//  background-color: #2196F3;
+//}
+//
+//input:focus + .slider {
+//  box-shadow: 0 0 1px #2196F3;
+//}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
 
 
 .form__input:focus ~ .form__input-placeholder,
@@ -160,3 +257,26 @@ ol
   position: absolute;
   z-index: -1;
 }
+
+@media only screen and (max-width: 768px)
+  .form
+    width: 100%
+  .column
+    width: 45%
+    & + &
+      margin-left: auto
+  .form__file
+    border-radius: 6px 6px 6px 6px;
+    min-width: 100%
+    &-after
+      display: none
+
+@media only screen and (max-width: 568px)
+  .form
+    top: 0
+  .form__inner
+    flex-direction: column
+  .column
+    width: 100%
+    & + &
+      margin-top: 30px
