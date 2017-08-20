@@ -7,13 +7,6 @@
 @import nib
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&subset=cyrillic');
 
-$background: #e74c3c
-$select-color: #fff
-$select-background: #c0392b
-$select-width: 220px
-$select-height: 40px
-
-
 *
   box-sizing border-box
 
@@ -177,6 +170,7 @@ ol
         border-color #e63333
 
 
+
 [type="checkbox"]:not(:checked),
 [type="checkbox"]:checked {
   position: absolute;
@@ -227,72 +221,6 @@ ol
 label:hover:before {
   border: 1px solid #5b50c6!important;
 }
-
-
-//&__checkbox
-  //  &-input
-  //    padding: 18px
-  //    font-size: 30px
-
-/* The switch - the box around the slider */
-//.switch {
-//  position: relative;
-//  display: inline-block;
-//  width: 60px;
-//  height: 34px;
-//}
-//
-///* Hide default HTML checkbox */
-//.switch input {display:none;}
-//
-///* The slider */
-//.slider {
-//  position: absolute;
-//  cursor: pointer;
-//  top: 0;
-//  left: 0;
-//  right: 0;
-//  bottom: 0;
-//  background-color: #fff;
-//  -webkit-transition: .4s;
-//  transition: .4s;
-//  border: solid 1px #b0b7be;
-//}
-//
-//.slider:before {
-//  position: absolute;
-//  content: "";
-//  height: 26px;
-//  width: 26px;
-//  left: 4px;
-//  bottom: 3px;
-//  background-color: #5b50c6
-//  -webkit-transition: .4s;
-//  transition: .4s;
-//}
-
-//input:checked + .slider {
-//  background-color: #2196F3;
-//}
-//
-//input:focus + .slider {
-//  box-shadow: 0 0 1px #2196F3;
-//}
-
-//input:checked + .slider:before {
-//  -webkit-transform: translateX(26px);
-//  -ms-transform: translateX(26px);
-//  transform: translateX(26px);
-//}
-//
-///* Rounded sliders */
-//.slider.round {
-//  border-radius: 34px;
-//}
-//
-//.slider.round:before {
-//  border-radius: 50%;
-//}
 
 
 .form__input:focus ~ .form__input-placeholder,
@@ -384,11 +312,6 @@ label:hover:before {
     position: absolute;
     top: 3px;
 
-
-/*.btn-switch__radio--female:checked ~ .btn-switch__label--male .btn-switch__txt,
-.btn-switch__radio--male:checked ~ .btn-switch__label--female .btn-switch__txt {
-  opacity: 0;
-}*/
 
 .btn-switch__label:before {
   content: "";
@@ -500,14 +423,6 @@ label:hover:before {
   right: 10px;
 }
 
-//.select-styled:hover {
-//  border-color #636f7b;
-//}
-//
-//.select-styled:active, .select-styled.active {
-//  border-color #636f7b;
-//  color: #808890
-//}
 
 .select-styled:active:after, .select-styled.active:after {
   top: 17px;
@@ -542,8 +457,6 @@ label:hover:before {
 }
 .select-options li:hover {
   color: #171b20
-  //background: #fff;
-  //border-color #636f7b;
 }
 .select-options li[rel="hide"] {
   display: none;
@@ -564,10 +477,6 @@ label:hover:before {
       display: none
 
 @media only screen and (max-width: 568px)
-  //.form
-  //  position: absolute;
-  //  top: 0
-  //  left: 0;
   .form__info
     align-items: center;
   .wrapper
