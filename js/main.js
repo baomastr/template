@@ -93,7 +93,11 @@ $(document).ready(function () {
         if (testEmail.test(this.value)) {console.log('passed');}
         else {
             $(this).siblings('.form__input-placeholder').addClass('invalid');
-            console.log('failed');
+            if ($(this).val().length === 0) {
+                // console.log('empty');
+                $(this).siblings('.form__input-placeholder').removeClass('invalid');
+            }
+            // console.log('failed');
         }
     });
 
