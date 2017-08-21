@@ -97,9 +97,6 @@ ol
       border-color: #e63333
       & ~ .form__input-placeholder
         color #e63333
-
-
-
     &:focus
       outline: none;
       border: solid 1.2px #636f7b;
@@ -120,12 +117,16 @@ ol
       border: 0px
       text-transform: uppercase
       border-radius: 100px;
-      background-color: #2328ae;
+      background-color: #5b50c6
       color:white
       font-size: 16px;
       padding: 15px
       width: 100%
       cursor: pointer
+      &:hover
+        background-color: #2328ae;
+        transition: background-color 300ms ease-out;
+
   &__file
     border-radius: 6px 6px 0 6px;
     background-color: #ffc739;
@@ -143,6 +144,11 @@ ol
     //  bottom: -15px
     //  right: 0
     //  z-index: -1;
+    &-text
+      &:hover
+        background-color: #B58200;
+        transition: background-color 300ms ease-out;
+
     &-after
       position: absolute;
       right: 0;
